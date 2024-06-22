@@ -2,11 +2,19 @@ package com.petclinic.security.config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.annotation.Profile;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseBuilder;
+import org.springframework.jdbc.datasource.embedded.EmbeddedDatabaseType;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
+import org.springframework.security.core.userdetails.jdbc.JdbcDaoImpl;
 import org.springframework.security.provisioning.InMemoryUserDetailsManager;
+import org.springframework.security.provisioning.JdbcUserDetailsManager;
+import org.springframework.security.provisioning.UserDetailsManager;
 import org.springframework.security.web.SecurityFilterChain;
+
+import javax.sql.DataSource;
 
 import static org.springframework.security.config.Customizer.withDefaults;
 
@@ -24,19 +32,40 @@ public class SecurityConfig {
                 ).httpBasic(withDefaults()).build();
     }
 
-    @Bean
+    @Bean @Profile("inmemory")
     public InMemoryUserDetailsManager userDetailsService() {
-        UserDetails user1 = User.builder()
+        return new InMemoryUserDetailsManager(getUser1(), getUser2());
+    }
+
+    @Bean @Profile("database")
+    UserDetailsManager users(DataSource dataSource) {
+        JdbcUserDetailsManager users = new JdbcUserDetailsManager(dataSource());
+        users.createUser(getUser1());
+        users.createUser(getUser2());
+        return users;
+    }
+    @Bean @Profile("database")
+    DataSource dataSource() {
+        return new EmbeddedDatabaseBuilder().setType(EmbeddedDatabaseType.HSQL)
+                .addScript(JdbcDaoImpl.DEFAULT_USER_SCHEMA_DDL_LOCATION).build();
+    }
+
+
+
+    private UserDetails getUser1() {
+        return User.builder()
                 .username("user1")
                 .password("{noop}password")
                 .roles("USER")
                 .build();
-        UserDetails user2 = User.builder()
+    }
+
+    private UserDetails getUser2() {
+        return User.builder()
                 .username("user2")
                 .password("{noop}password")
-                .roles("ADMIN", "USER")
+                .roles("USER","ADMIN")
                 .build();
-        return new InMemoryUserDetailsManager(user1, user2);
     }
 
 }
