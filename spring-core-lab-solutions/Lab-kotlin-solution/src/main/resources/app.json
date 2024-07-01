@@ -1,0 +1,9 @@
+{
+  "id": 1,
+  "date": "2023-12-21",
+  "purpose": "teeth whitening",
+  "owner": {
+    "firstName": "joe",
+    "lastName": "satriani"
+  }
+}
