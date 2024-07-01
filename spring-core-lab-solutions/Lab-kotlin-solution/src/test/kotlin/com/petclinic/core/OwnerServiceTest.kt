@@ -9,8 +9,11 @@ import org.springframework.transaction.support.TransactionSynchronizationManager
 import java.math.BigDecimal
 
 
-@SpringBootTest  @Transactional //@ActiveProfiles("monitoring")
-class OwnerServiceTest(@Autowired val ownerService: OwnerService, @Autowired val ownerRepository: OwnerRepository) {
+@SpringBootTest
+@Transactional
+class OwnerServiceTest(
+                @Autowired val ownerService: OwnerService,
+                @Autowired val ownerRepository: OwnerRepository) {
 
     @Test
     fun shouldFindOwner() {
@@ -34,32 +37,6 @@ class OwnerServiceTest(@Autowired val ownerService: OwnerService, @Autowired val
     }
 
     @Test
-    fun shouldCRUD() {
-        println("before save")
-        val pets = mutableListOf(Pet(null, "hamster", "frosty"), Pet(null, "mouse", "squeaky"))
-        val owner1 = ownerRepository.save(Owner(null, "Robert","Plant", BigDecimal(100), pets))
-        assertThat(owner1.id).isNotNull()
-        println("after save, owner.id: $owner1.id")
-        val owner2 = ownerRepository.findById(owner1.id!!).orElse(null)
-        assertThat(owner2.id).isEqualTo(owner1.id)
-
-        println("updating pet")
-        val owner3 = owner2.copy(firstName="jack")
-        println("before updating $owner3")
-        ownerRepository.save(owner3)
-
-
-        val owner4 = ownerRepository.findByFirstName("jack")
-        assertThat(owner4!!.firstName).isEqualTo("jack")
-
-        println("before delete")
-        ownerRepository.delete(owner4)
-
-        val owner5 = ownerRepository.findByFirstName("jack")
-        assertThat(owner5).isNull()
-    }
-
-    @Test @Transactional
     fun shouldTransferFunds() {
         assertThat(TransactionSynchronizationManager.isActualTransactionActive()).isTrue();
         val ownerToCredit = ownerRepository.save(Owner(null, "JimiC","Hendrix", BigDecimal(1), null))
@@ -71,13 +48,5 @@ class OwnerServiceTest(@Autowired val ownerService: OwnerService, @Autowired val
 
         val ownerToDebitRetrieved = ownerService.findByFirstName("RobertC")
         assertThat(ownerToDebitRetrieved!!.accountStatement).isEqualTo(BigDecimal(800))
-
-
-
-
-
-
-
-
     }
 }

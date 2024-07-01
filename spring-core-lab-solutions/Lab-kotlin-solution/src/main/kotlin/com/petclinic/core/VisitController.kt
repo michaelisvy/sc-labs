@@ -12,7 +12,7 @@ import org.springframework.web.method.annotation.MethodArgumentTypeMismatchExcep
 
 @RestController
 @RequestMapping("/visit")
-class VisitController(@Autowired val visitService: VisitService) {
+class VisitController(val visitService: VisitService) {
 
     @Operation(summary="find a Pet visit by its id")
     @GetMapping("/{id}")
@@ -34,7 +34,7 @@ class VisitController(@Autowired val visitService: VisitService) {
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body("Error ${HttpStatus.NOT_FOUND}. Invoice does not exist")
     }
 
-    @ApiResponse(responseCode = "400", description = "Typically used when Invoice ID is not a number\"")
+    @ApiResponse(responseCode = "400", description = "Typically used when Invoice ID is not a number")
     @ExceptionHandler(MethodArgumentTypeMismatchException::class)
     fun handleMethodArgumentTypeMismatchException(ex: MethodArgumentTypeMismatchException?): ResponseEntity<Any> {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body("Error ${HttpStatus.BAD_REQUEST}. The visit ID could not be converted to a numeric value")

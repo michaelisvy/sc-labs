@@ -6,8 +6,8 @@ import jakarta.persistence.GenerationType
 import jakarta.persistence.Id
 
 @Entity
-data class Pet(
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)  val id: Int?,
-    val type: String,
-    val name: String,
+class Pet(
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)  var id: Int?,
+    var type: String,
+    var name: String,
 )
