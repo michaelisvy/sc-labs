@@ -24,7 +24,7 @@ class OwnerServiceTest(
     @Test
     fun shouldFindByFirstName() {
         val owner = ownerService.findByFirstName("joe")
-        assertThat(owner!!.id).isEqualTo(1)
+        assertThat(owner.id).isEqualTo(1)
     }
 
     @Test
@@ -44,9 +44,9 @@ class OwnerServiceTest(
         ownerService.transferFunds(ownerToCredit, ownerToDebit, BigDecimal(200))
 
         val ownerToCreditRetrieved = ownerService.findByFirstName("JimiC")
-        assertThat(ownerToCreditRetrieved!!.accountStatement).isEqualTo(BigDecimal(201))
+        assertThat(ownerToCreditRetrieved.accountStatement).isEqualTo(BigDecimal(201))
 
         val ownerToDebitRetrieved = ownerService.findByFirstName("RobertC")
-        assertThat(ownerToDebitRetrieved!!.accountStatement).isEqualTo(BigDecimal(800))
+        assertThat(ownerToDebitRetrieved.accountStatement).isEqualTo(BigDecimal(800))
     }
 }

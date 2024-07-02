@@ -26,8 +26,6 @@ class VisitController(val visitService: VisitService) {
         return ResponseEntity.status(HttpStatus.CREATED).body(savedVisit);
     }
 
-
-
     @ApiResponse(responseCode = "404", description = "Typically thrown when Invoice ID does not exist")
     @ExceptionHandler(NoSuchElementException::class)
     fun handleNoSuchElementException(ex: NoSuchElementException?): ResponseEntity<Any> {

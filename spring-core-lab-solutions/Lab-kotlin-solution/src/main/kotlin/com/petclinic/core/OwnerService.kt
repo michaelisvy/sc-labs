@@ -16,6 +16,7 @@ class OwnerService(
 
     fun findById(id: Int) : Owner {
         return ownerRepository.findById(id).orElseThrow { EntityNotFoundException("Owner with id $id not found") }
+        // Lambda expression, based on return type Optional<Owner>
     }
 
     fun save(owner: Owner): Owner {

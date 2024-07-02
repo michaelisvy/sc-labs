@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*
 @RestController
 @RequestMapping("/owner")
 class OwnerController(
-    @Autowired val ownerService: OwnerService) {
+    val ownerService: OwnerService) {
 
     @Operation(summary = "search an owner by his/her first name")
     @GetMapping("/search")
