@@ -25,7 +25,10 @@ public class GreetingServiceTest {
 
     @Test
     public void shouldCountBeanDefinitions() {
-        assertThat(this.applicationContext.getBeanDefinitionCount()).isGreaterThanOrEqualTo(3);
+        int beanDefinitionCount = this.applicationContext.getBeanDefinitionCount();
+        assertThat(beanDefinitionCount).isGreaterThanOrEqualTo(3);
+        System.out.println("number of bean definitions: " + beanDefinitionCount);
+
     }
 
     @Test
