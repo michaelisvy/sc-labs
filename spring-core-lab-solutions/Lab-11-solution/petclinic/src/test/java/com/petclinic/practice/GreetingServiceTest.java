@@ -1,29 +1,46 @@
 package com.petclinic.practice;
 
 import org.junit.jupiter.api.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.context.SpringBootTest;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import static org.assertj.core.api.Assertions.*;
 
-@SpringBootTest
 public class GreetingServiceTest {
-    private final GreetingService greetingService1;
-    private final GreetingService greetingService2;
+    private final ApplicationContext applicationContext;
+    private final GreetingService greetingService;
+
+    private static final Logger logger = LoggerFactory.getLogger(GreetingServiceTest.class);
 
     @Autowired
-    public GreetingServiceTest(GreetingService greetingService1, GreetingService greetingService2) {
-        this.greetingService1 = greetingService1;
-        this.greetingService2 = greetingService2;
+    public GreetingServiceTest() {
+        this.applicationContext = new AnnotationConfigApplicationContext("com.petclinic.practice");
+        this.greetingService = this.applicationContext.getBean(GreetingService.class);
+
     }
 
     @Test
     public void shouldGreetSuccessfully() {
-        assertThat(greetingService1.sayHi()).isEqualTo("Hello John");
+        assertThat(this.greetingService.sayHi()).isEqualTo("Hello John");
     }
 
     @Test
-    public void shouldUseSingletons() {
-        assertThat(this.greetingService1).isEqualTo(this.greetingService2);
+    public void shouldCountBeanDefinitions() {
+        int beanDefinitionCount = this.applicationContext.getBeanDefinitionCount();
+        assertThat(beanDefinitionCount).isGreaterThanOrEqualTo(3);
+        logger.info("number of bean definitions: {}", beanDefinitionCount);
+
+    }
+
+    @Test
+    public void shouldDisplayBeanDefinitions() {
+        String[] beanNames = this.applicationContext.getBeanDefinitionNames();
+        logger.info("All beans in the application context:");
+        for (String beanName : beanNames) {
+            logger.info(beanName);
+        }
     }
 }
