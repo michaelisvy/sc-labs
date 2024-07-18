@@ -1,0 +1,49 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+    <modelVersion>4.0.0</modelVersion>
+
+    <groupId>com.example</groupId>
+    <artifactId>Labs</artifactId>
+    <version>1.0-SNAPSHOT</version>
+    <packaging>pom</packaging>
+
+    <modules>
+        <module>Lab-01-solution/petclinic</module>
+        <module>Lab-02-solution/petclinic</module>
+        <module>Lab-03-solution/petclinic</module>
+        <module>Lab-04-solution/petclinic</module>
+        <module>Lab-05-solution/petclinic</module>
+        <module>Lab-06-solution/petclinic</module>
+        <module>Lab-07-solution/petclinic</module>
+        <module>Lab-08-solution/petclinic</module>
+        <module>Lab-09-solution/petclinic</module>
+        <module>Lab-10-solution/petclinic</module>
+        <module>Lab-11-solution/petclinic</module>
+        <module>Lab-11-solution/petclinic-invoice</module>
+        <module>Lab-12-solution/petclinic</module>
+        <module>Lab-12-solution/petclinic-invoice</module>
+        <module>Lab-12-solution/petclinic-admin</module>
+        <module>Lab-kotlin</module>
+        <module>Lab-security-solution</module>
+
+    </modules>
+
+    <dependencyManagement>
+        <dependencies>
+            <!-- Define common dependencies here if needed -->
+        </dependencies>
+    </dependencyManagement>
+
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-surefire-plugin</artifactId>
+                <version>3.2.5</version>
+                <configuration>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
+</project>

@@ -9,9 +9,8 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com</groupId>
-	<artifactId>petclinic-admin</artifactId>
+	<artifactId>Lab-12-admin</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>petclinic-admin</name>
 	<description>Spring Boot admin server</description>
 	<properties>
 		<java.version>21</java.version>
