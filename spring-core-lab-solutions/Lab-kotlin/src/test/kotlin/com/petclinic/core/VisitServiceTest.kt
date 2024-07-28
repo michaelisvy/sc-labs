@@ -16,8 +16,8 @@ class VisitServiceTest(@Autowired val visitService: VisitService) {
     fun shouldFindById() {
         val visit = visitService.findById(1)
         assertThat(visit.id).isEqualTo(1)
-        assertThat(visit.pet.id).isEqualTo(1)
-        assertThat(visit.owner.id).isEqualTo(1)
+        assertThat(visit.pet!!.id).isEqualTo(1)
+        assertThat(visit.owner!!.id).isEqualTo(1)
     }
 
     @Test

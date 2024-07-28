@@ -13,8 +13,8 @@ class Visit(
 
     @OneToOne(cascade = [CascadeType.PERSIST])
     @JoinColumn(name="owner_id")
-    var owner: Owner,
+    var owner: Owner?,
     @OneToOne(cascade = [CascadeType.PERSIST])
     @JoinColumn(name="pet_id")
-    var pet: Pet
+    var pet: Pet?
 )
