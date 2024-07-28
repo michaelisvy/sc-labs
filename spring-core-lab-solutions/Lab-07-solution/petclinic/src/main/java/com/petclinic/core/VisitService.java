@@ -22,11 +22,7 @@ public class VisitService {
     }
 
     public Visit findByReferenceNumber(String referenceNumber) {
-        Optional<Visit> visit = this.visitRepository.findByReferenceNumber(referenceNumber);
-        if(visit.isEmpty()) {
-            throw new EntityNotFoundException("entity with reference number: " +referenceNumber + " was not found");
-        }
-        else return visit.get();
+        return visitRepository.findByReferenceNumber(referenceNumber);
     }
 
     public void delete(Visit visit) {

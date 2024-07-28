@@ -2,6 +2,7 @@ package com.petclinic.core;
 
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.EntityNotFoundException;
+import org.assertj.core.api.*;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -39,6 +40,16 @@ public class OwnerServiceTest {
     public void shouldNotFindOwnerByFirstName() {
         assertThatThrownBy(() -> {
             this.ownerService.findByFirstName("huckleberry");
+        }).isInstanceOf(EntityNotFoundException.class);
+    }
+
+    @Test
+    void shouldNotFindOwnerByFirstNameExpanded() {
+        assertThatThrownBy(new ThrowableAssert.ThrowingCallable() {
+            @Override
+            public void call() {
+                ownerService.findByFirstName("huckleberry");
+            }
         }).isInstanceOf(EntityNotFoundException.class);
     }
 

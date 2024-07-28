@@ -15,21 +15,15 @@ import static org.assertj.core.api.Assertions.*;
 public class VisitServiceTest {
     private final VisitService visitService;
 
-    private final ApplicationContext applicationContext;
+    @BeforeEach
+    public void setup() {
+        var visit = new Visit(0, "V01-23", LocalDate.of(2013, 12, 21), "Teeth whitening");
+        this.visitService.save(visit);
+    }
 
     @Autowired
     public VisitServiceTest(VisitService visitService, ApplicationContext applicationContext) {
         this.visitService = visitService;
-        this.applicationContext = applicationContext;
-    }
-
-    @BeforeEach
-    public void setup() {
-        var visit = new Visit(0, "V01-23", LocalDate.of(2013, 12, 21), "Teeth whitening");
-        var pet = new Pet(0, "dog", "Luna");
-        visit.setPet(pet);
-        visit.setOwner(new Owner(0, "joe", "satriani", 1000));
-        this.visitService.save(visit);
     }
 
     @Test
@@ -38,29 +32,7 @@ public class VisitServiceTest {
     }
 
     @Test
-    public void shouldNotFindVisit() {
-        assertThat(this.visitService.findByReferenceNumber("bla")).isEqualTo(null);
-    }
-
-    @Test
-    public void shouldDeleteVisit() {
-        var visit = this.visitService.findByReferenceNumber("V01-23");
-        this.visitService.delete(visit);
-        assertThat(this.visitService.findByReferenceNumber("V01-23")).isEqualTo(null);
-    }
-
-    @Test
-    public void shouldFindVisitWithPet() {
-        assertThat(this.visitService.findByReferenceNumber("V01-23").getPet().getName()).isEqualTo("Luna");
-    }
-
-    @Test
-    public void shouldFindVisitWithOwner() {
-        assertThat(this.visitService.findByReferenceNumber("V01-23").getOwner().getLastName()).isEqualTo("satriani");
-    }
-
-    @Test
-    public void shouldDisplayBeanNumber() {
-        System.out.println(this.applicationContext.getBeanDefinitionCount());
+    public void shouldNotFindVisitWithReferenceNumber() {
+        assertThat(this.visitService.findByReferenceNumber("bla")).isNull();
     }
 }

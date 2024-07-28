@@ -33,7 +33,7 @@ public class VisitServiceTest {
         this.visitService.save(visit);
     }
 
-    @Test @Transactional
+    @Test
     public void shouldFindVisit() {
         assertThat(this.visitService.findByReferenceNumber("V01-23").getReferenceNumber()).isEqualTo("V01-23");
     }

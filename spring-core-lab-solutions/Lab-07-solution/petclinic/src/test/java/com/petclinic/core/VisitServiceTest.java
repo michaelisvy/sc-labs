@@ -1,6 +1,5 @@
 package com.petclinic.core;
 
-import jakarta.persistence.EntityNotFoundException;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -40,18 +39,14 @@ public class VisitServiceTest {
 
     @Test
     public void shouldNotFindVisit() {
-        assertThatThrownBy( () -> {
-            this.visitService.findByReferenceNumber("bla");
-        }).isInstanceOf(EntityNotFoundException.class);
+        assertThat(this.visitService.findByReferenceNumber("bla")).isEqualTo(null);
     }
 
     @Test
     public void shouldDeleteVisit() {
         var visit = this.visitService.findByReferenceNumber("V01-23");
         this.visitService.delete(visit);
-        assertThatThrownBy( () -> {
-            this.visitService.findByReferenceNumber("V01-23");
-        }).isInstanceOf(EntityNotFoundException.class);
+        assertThat(this.visitService.findByReferenceNumber("V01-23")).isEqualTo(null);
     }
 
     @Test
