@@ -1,7 +1,6 @@
 package com.petclinic.practice;
 
 import org.junit.jupiter.api.Test;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -11,7 +10,6 @@ public class GreetingServiceTest {
     private final ApplicationContext applicationContext;
     private final GreetingService greetingService;
 
-    @Autowired
     public GreetingServiceTest() {
         this.applicationContext = new AnnotationConfigApplicationContext("com.petclinic.practice");
         this.greetingService = this.applicationContext.getBean(GreetingService.class);

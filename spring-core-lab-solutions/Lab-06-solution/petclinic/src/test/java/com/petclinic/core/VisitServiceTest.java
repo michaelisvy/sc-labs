@@ -20,7 +20,6 @@ public class VisitServiceTest {
         var visit = new Visit(0, "V01-23", LocalDate.of(2013, 12, 21), "Teeth whitening");
         this.visitService.save(visit);
     }
-
     @Autowired
     public VisitServiceTest(VisitService visitService, ApplicationContext applicationContext) {
         this.visitService = visitService;

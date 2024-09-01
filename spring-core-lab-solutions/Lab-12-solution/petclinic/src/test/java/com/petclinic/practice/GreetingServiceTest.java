@@ -3,7 +3,6 @@ package com.petclinic.practice;
 import org.junit.jupiter.api.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
@@ -15,7 +14,6 @@ public class GreetingServiceTest {
 
     private static final Logger logger = LoggerFactory.getLogger(GreetingServiceTest.class);
 
-    @Autowired
     public GreetingServiceTest() {
         this.applicationContext = new AnnotationConfigApplicationContext("com.petclinic.practice");
         this.greetingService = this.applicationContext.getBean(GreetingService.class);

@@ -4,7 +4,7 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.example</groupId>
-    <artifactId>Labs</artifactId>
+    <artifactId>Labs-parent</artifactId>
     <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
 
@@ -28,12 +28,9 @@
         <module>Lab-security-solution</module>
 
     </modules>
-
-    <dependencyManagement>
-        <dependencies>
-            <!-- Define common dependencies here if needed -->
-        </dependencies>
-    </dependencyManagement>
+	<properties>
+		<maven.compiler.release>17</maven.compiler.release>
+	</properties>
 
     <build>
         <plugins>
@@ -41,8 +38,23 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>3.2.5</version>
+            </plugin>
+            <plugin>
+                <groupId>org.openrewrite.maven</groupId>
+                <artifactId>rewrite-maven-plugin</artifactId>
+                <version>5.39.2</version>
                 <configuration>
+                    <activeRecipes>
+                        <recipe>org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3</recipe>
+                    </activeRecipes>
                 </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>org.openrewrite.recipe</groupId>
+                        <artifactId>rewrite-spring</artifactId>
+                        <version>5.18.0</version>
+                    </dependency>
+                </dependencies>
             </plugin>
         </plugins>
     </build>
