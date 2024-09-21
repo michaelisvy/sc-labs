@@ -19,6 +19,7 @@
         <module>Lab-08-solution/petclinic</module>
         <module>Lab-09-solution/petclinic</module>
         <module>Lab-10-solution/petclinic</module>
+        <module>Lab-10-solution/petclinic-invoice</module>
         <module>Lab-11-solution/petclinic</module>
         <module>Lab-11-solution/petclinic-invoice</module>
         <module>Lab-12-solution/petclinic</module>
@@ -42,7 +43,7 @@
             <plugin>
                 <groupId>org.openrewrite.maven</groupId>
                 <artifactId>rewrite-maven-plugin</artifactId>
-                <version>5.39.2</version>
+                <version>5.40.2</version>
                 <configuration>
                     <activeRecipes>
                         <recipe>org.openrewrite.java.spring.boot3.UpgradeSpringBoot_3_3</recipe>
@@ -52,7 +53,7 @@
                     <dependency>
                         <groupId>org.openrewrite.recipe</groupId>
                         <artifactId>rewrite-spring</artifactId>
-                        <version>5.18.0</version>
+                        <version>5.19.0</version>
                     </dependency>
                 </dependencies>
             </plugin>

@@ -13,16 +13,13 @@ import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest @Transactional
 public class VisitServiceTest {
-    private final VisitService visitService;
+    @Autowired
+    private VisitService visitService;
 
     @BeforeEach
     public void setup() {
         var visit = new Visit(0, "V01-23", LocalDate.of(2013, 12, 21), "Teeth whitening");
         this.visitService.save(visit);
-    }
-    @Autowired
-    public VisitServiceTest(VisitService visitService, ApplicationContext applicationContext) {
-        this.visitService = visitService;
     }
 
     @Test

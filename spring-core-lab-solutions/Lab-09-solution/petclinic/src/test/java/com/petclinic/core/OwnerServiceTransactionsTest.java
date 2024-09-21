@@ -11,12 +11,8 @@ import static org.assertj.core.api.Assertions.*;
 @SpringBootTest @Transactional
 public class OwnerServiceTransactionsTest {
 
-    private final OwnerService ownerService;
-
     @Autowired
-    public OwnerServiceTransactionsTest(OwnerService ownerService) {
-        this.ownerService = ownerService;
-    }
+    private OwnerService ownerService;
 
     @Test
     public void shouldRunInTransaction() {

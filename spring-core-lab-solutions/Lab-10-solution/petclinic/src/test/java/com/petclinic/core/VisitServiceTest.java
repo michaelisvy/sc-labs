@@ -14,15 +14,11 @@ import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest @Transactional
 public class VisitServiceTest {
-    private final VisitService visitService;
-
-    private final ApplicationContext applicationContext;
+    @Autowired
+    private VisitService visitService;
 
     @Autowired
-    public VisitServiceTest(VisitService visitService, ApplicationContext applicationContext) {
-        this.visitService = visitService;
-        this.applicationContext = applicationContext;
-    }
+    private ApplicationContext applicationContext;
 
     @BeforeEach
     public void setup() {

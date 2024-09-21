@@ -9,15 +9,10 @@ import static org.assertj.core.api.Assertions.*;
 
 @SpringBootTest
 public class VisitServiceTest {
-    private final VisitService visitService;
-
-    private final ApplicationContext applicationContext;
-
     @Autowired
-    public VisitServiceTest(VisitService visitService, ApplicationContext applicationContext) {
-        this.visitService = visitService;
-        this.applicationContext = applicationContext;
-    }
+    private VisitService visitService;
+    @Autowired
+    private ApplicationContext applicationContext;
 
     @Test
     public void shouldFindVisit() {
