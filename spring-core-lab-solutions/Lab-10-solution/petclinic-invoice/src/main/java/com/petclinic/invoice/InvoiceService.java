@@ -5,15 +5,22 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.client.RestClient;
 
 @Service
-public class InvoiceService {
+class InvoiceService {
+
+    private static final String VISIT_URL = "http://localhost:8080/visit/";
+    private final double visitPrice;
     private final RestClient restClient;
 
-    public InvoiceService(RestClient restClient) {
+    public InvoiceService(RestClient restClient, @Value("${visit.price}") double visitPrice) {
         this.restClient = restClient;
+        this.visitPrice = visitPrice;
     }
 
-    public Invoice generateInvoice() {
-        var invoice = this.restClient.get().uri("http://localhost:8080/visit/1").retrieve().body(Invoice.class);
+    public Invoice generateInvoice(int id) {
+        var url = VISIT_URL + id;
+        var invoice = this.restClient.get().uri(url).retrieve().body(Invoice.class);
+        invoice.setAmount(this.visitPrice);
         return invoice;
     }
+
 }

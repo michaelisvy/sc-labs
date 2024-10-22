@@ -1,11 +1,12 @@
 package com.petclinic.invoice;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 
 import java.time.LocalDate;
 
 public class Invoice {
+
+    private double amount;
     @JsonProperty("date")
     private LocalDate visitDate;
     @JsonProperty("purpose")
@@ -17,5 +18,13 @@ public class Invoice {
 
     public String getVisitPurpose() {
         return visitPurpose;
+    }
+
+    void setAmount(double amount) {
+        this.amount = amount;
+    }
+
+    public double getAmount() {
+        return amount;
     }
 }
