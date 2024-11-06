@@ -15,7 +15,7 @@ class VisitController(val visitService: VisitService) {
 
     @Operation(summary="find a Pet visit by its id")
     @GetMapping("/{id}")
-    fun findById(@Parameter(description = "id of visit to be searched")  @PathVariable id: Int): Visit {
+    fun findById(@PathVariable id: Int): Visit {
         return visitService.findById(id)
     }
 
