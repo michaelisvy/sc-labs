@@ -1,0 +1,16 @@
+# IntelliJ IDEA files
+.idea/
+
+# Exclude all .iml files
+*.iml
+
+# Exclude all .idea files
+.idea/**/*.*
+
+# Exclude .gitignore from .idea folder
+!.idea/.gitignore
+
+.DS_Store
+
+**/zipped/
+**/target/
