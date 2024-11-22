@@ -9,15 +9,15 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>Lab-01-solution/petclinic</module>
-        <module>Lab-02-solution/petclinic</module>
-        <module>Lab-03-solution/petclinic</module>
-        <module>Lab-04-solution/petclinic</module>
-        <module>Lab-05-solution/petclinic</module>
-        <module>Lab-06-solution/petclinic</module>
-        <module>Lab-07-solution/petclinic</module>
-        <module>Lab-08-solution/petclinic</module>
-        <module>Lab-09-solution/petclinic</module>
+        <module>Lab-01-solution</module>
+        <module>Lab-02-solution</module>
+        <module>Lab-03-solution</module>
+        <module>Lab-04-solution</module>
+        <module>Lab-05-solution</module>
+        <module>Lab-06-solution</module>
+        <module>Lab-07-solution</module>
+        <module>Lab-08-solution</module>
+        <module>Lab-09-solution</module>
         <module>Lab-10-solution/petclinic</module>
         <module>Lab-10-solution/petclinic-invoice</module>
         <module>Lab-11-solution/petclinic</module>
