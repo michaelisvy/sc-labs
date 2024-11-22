@@ -9,7 +9,7 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.petclinic</groupId>
-	<artifactId>Lab-12-invoice</artifactId>
+	<artifactId>Lab-12-petclinic-invoice-solution</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<description>Invoice module for petclinic</description>
 	<properties>

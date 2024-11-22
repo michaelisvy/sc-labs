@@ -18,13 +18,13 @@
         <module>Lab-07-solution</module>
         <module>Lab-08-solution</module>
         <module>Lab-09-solution</module>
-        <module>Lab-10-solution/petclinic</module>
-        <module>Lab-10-solution/petclinic-invoice</module>
-        <module>Lab-11-solution/petclinic</module>
-        <module>Lab-11-solution/petclinic-invoice</module>
-        <module>Lab-12-solution/petclinic</module>
-        <module>Lab-12-solution/petclinic-invoice</module>
-        <module>Lab-12-solution/petclinic-admin</module>
+        <module>Lab-10-petclinic-solution</module>
+        <module>Lab-10-petclinic-invoice-solution</module>
+        <module>Lab-11-petclinic-solution</module>
+        <module>Lab-11-petclinic-invoice-solution</module>
+        <module>Lab-12-petclinic-solution</module>
+        <module>Lab-12-petclinic-invoice-solution</module>
+        <module>Lab-12-petclinic-admin-solution</module>
         <module>Lab-kotlin</module>
         <module>Lab-security-solution</module>
 
