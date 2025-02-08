@@ -3,7 +3,7 @@ package com.petclinic.core;
 import java.time.LocalDate;
 
 public class Visit {
-    private int id;
+    private Long id;
     private String referenceNumber;
     private LocalDate date;
     private String purpose;
@@ -13,14 +13,14 @@ public class Visit {
     public Visit() {
     }
 
-    public Visit(int id, String referenceNumber, LocalDate date, String purpose) {
+    public Visit(Long id, String referenceNumber, LocalDate date, String purpose) {
         this.id = id;
         this.referenceNumber = referenceNumber;
         this.date = date;
         this.purpose = purpose;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
