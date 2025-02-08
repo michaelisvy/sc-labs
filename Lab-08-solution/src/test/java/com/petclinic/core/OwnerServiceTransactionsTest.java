@@ -21,8 +21,8 @@ public class OwnerServiceTransactionsTest {
 
     @Test
     public void shouldTransferFunds() {
-        var ownerToCredit = ownerService.save(new Owner(0, "Jimi","Hendrix", 0));
-        var ownerToDebit = ownerService.save(new Owner(0, "Robert","Plant",1000));
+        var ownerToCredit = ownerService.save(new Owner(null, "Jimi","Hendrix", 0));
+        var ownerToDebit = ownerService.save(new Owner(null, "Robert","Plant",1000));
         ownerService.transferFunds(ownerToCredit, ownerToDebit, 200);
         var ownerToCreditRetrieved = ownerService.findByFirstName("Jimi");
         assertThat(ownerToCreditRetrieved.getAccountStatement()).isEqualTo(200);
@@ -32,8 +32,8 @@ public class OwnerServiceTransactionsTest {
 
     @Test
     public void shouldFailTransferBecauseAmountBelowZero() {
-        var ownerToCredit = ownerService.save(new Owner(0, "Jimi","Hendrix", 0));
-        var ownerToDebit = ownerService.save(new Owner(0, "Robert","Plant",1000));
+        var ownerToCredit = ownerService.save(new Owner(null, "Jimi","Hendrix", 0));
+        var ownerToDebit = ownerService.save(new Owner(null, "Robert","Plant",1000));
         assertThatThrownBy(() -> {
             ownerService.transferFunds(ownerToCredit, ownerToDebit, 11200);
         }).isInstanceOf(RuntimeException.class);
