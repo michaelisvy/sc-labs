@@ -1,7 +1,6 @@
 package com.petclinic.core
 
 import jakarta.persistence.*
-import jakarta.validation.constraints.NotBlank
 import java.time.LocalDate
 
 @Entity
