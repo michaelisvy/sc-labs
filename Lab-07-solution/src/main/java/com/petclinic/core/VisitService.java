@@ -13,7 +13,7 @@ public class VisitService {
         this.visitRepository = visitRepository;
     }
 
-    public Visit findById(Integer id) {
+    public Visit findById(Long id) {
         Optional<Visit> visit = this.visitRepository.findById(id);
         if(visit.isEmpty()) {
             throw new EntityNotFoundException("entity " +id + " was not found");

@@ -21,10 +21,10 @@ public class VisitServiceTest {
 
     @BeforeEach
     public void setup() {
-        var visit = new Visit(0, "V01-23", LocalDate.of(2013, 12, 21), "Teeth whitening");
-        var pet = new Pet(0, "dog", "Luna");
+        var visit = new Visit(null, "V01-23", LocalDate.of(2013, 12, 21), "Teeth whitening");
+        var pet = new Pet(null, "dog", "Luna");
         visit.setPet(pet);
-        visit.setOwner(new Owner(0, "joe", "satriani", 1000));
+        visit.setOwner(new Owner(null, "joe", "satriani", 1000));
         this.visitService.save(visit);
     }
 

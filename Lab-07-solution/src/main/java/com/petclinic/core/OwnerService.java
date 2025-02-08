@@ -20,7 +20,7 @@ public class OwnerService {
         else return owner.get();
     }
 
-    public Owner findById(Integer id) {
+    public Owner findById(Long id) {
         var owner = ownerRepository.findById(id);
         if (owner.isEmpty()) {
             throw new EntityNotFoundException("could not find Owner with id: " + id);

@@ -12,7 +12,7 @@ import java.time.LocalDate;
 @Entity
 public class Visit {
     @Id @GeneratedValue
-    private int id;
+    private Long id;
 
     @OneToOne @Cascade(CascadeType.ALL)
     private Pet pet;
@@ -29,14 +29,14 @@ public class Visit {
     public Visit() {
     }
 
-    public Visit(int id, String referenceNumber, LocalDate date, String purpose) {
+    public Visit(Long id, String referenceNumber, LocalDate date, String purpose) {
         this.id = id;
         this.referenceNumber = referenceNumber;
         this.date = date;
         this.purpose = purpose;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 

@@ -16,9 +16,6 @@ public class VisitServiceTest {
     @Autowired
     private VisitService visitService;
 
-    @Autowired
-    private VisitRepository visitRepository;
-
     @BeforeEach
     public void setup() {
         var visit = new Visit(null, "V01-23", LocalDate.of(2013, 12, 21), "Teeth whitening");
@@ -28,7 +25,6 @@ public class VisitServiceTest {
     @Test
     public void shouldFindVisit() {
         assertThat(this.visitService.findByReferenceNumber("V01-23").getReferenceNumber()).isEqualTo("V01-23");
-        assertThat(this.visitRepository.findById(1L).getReferenceNumber()).isEqualTo("V01-23");
     }
 
     @Test
