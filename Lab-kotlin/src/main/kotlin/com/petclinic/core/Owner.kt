@@ -6,7 +6,7 @@ import java.math.BigDecimal
 @Entity
 class Owner(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Int?,
+    var id: Long?,
     var firstName: String,
     var lastName: String,
     var accountStatement: BigDecimal,

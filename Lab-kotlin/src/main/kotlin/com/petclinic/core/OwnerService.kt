@@ -13,7 +13,7 @@ class OwnerService(
         return ownerRepository.findByFirstName(name) ?: throw EntityNotFoundException("Owner with first name $name not found")
     }
 
-    fun findById(id: Int) : Owner {
+    fun findById(id: Long) : Owner {
         return ownerRepository.findById(id).orElseThrow { EntityNotFoundException("Owner with id $id not found") }
         // Lambda expression, based on return type Optional<Owner>
     }

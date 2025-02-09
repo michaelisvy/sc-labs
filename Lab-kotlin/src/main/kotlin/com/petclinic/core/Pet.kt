@@ -7,7 +7,7 @@ import jakarta.persistence.Id
 
 @Entity
 class Pet(
-    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)  var id: Int?,
+    @Id @GeneratedValue(strategy = GenerationType.IDENTITY)  var id: Long?,
     var type: String,
     var name: String,
 )

@@ -9,7 +9,7 @@ class VisitService(
         return visitRepository.save(visit)
     }
 
-    fun findById(id: Int): Visit {
+    fun findById(id: Long): Visit {
         return visitRepository.findById(id).orElseThrow()
     }
 }

@@ -18,7 +18,7 @@ class OwnerController(
     }
 
     @GetMapping("/{id}")
-    fun findVisit(@PathVariable id: Int): Owner {
+    fun findVisit(@PathVariable id: Long): Owner {
         return ownerService.findById(id)
     }
 

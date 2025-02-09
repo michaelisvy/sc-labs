@@ -17,7 +17,7 @@ class OwnerServiceTest(
 
     @Test
     fun shouldFindOwner() {
-        val owner = ownerService.findById(1);
+        val owner = ownerService.findById(1)
         assertThat(owner.id).isEqualTo(1)
     }
 

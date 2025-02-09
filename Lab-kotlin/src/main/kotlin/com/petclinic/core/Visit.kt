@@ -6,7 +6,7 @@ import java.time.LocalDate
 @Entity
 class Visit(
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
-    var id: Int?,
+    var id: Long?,
     var date: LocalDate,
     var purpose: String,
 
