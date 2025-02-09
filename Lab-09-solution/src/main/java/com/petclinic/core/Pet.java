@@ -7,20 +7,20 @@ import jakarta.persistence.Id;
 @Entity
 public class Pet {
     @Id @GeneratedValue
-    private int id;
+    private Long id;
     private String type;
     private String name;
 
     public Pet() {
     }
 
-    public Pet(int id, String type, String name) {
+    public Pet(Long id, String type, String name) {
         this.id = id;
         this.type = type;
         this.name = name;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 

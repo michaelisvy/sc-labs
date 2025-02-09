@@ -12,7 +12,8 @@ import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
 
-@SpringBootTest  @Transactional
+@SpringBootTest
+@Transactional
 public class OwnerServiceTest {
     @Autowired
     private OwnerService ownerService;
@@ -22,8 +23,8 @@ public class OwnerServiceTest {
 
     @BeforeEach
     public void setup() {
-        var owner = new Owner(0, "joe", "satriani", 50);
-        owner.setPets(List.of(new Pet(0, "dog", "Luna"), new Pet(0, "cat", "Miro")));
+        var owner = new Owner(null, "joe", "satriani", 50);
+        owner.setPets(List.of(new Pet(null, "dog", "Luna"), new Pet(null, "cat", "Miro")));
         this.ownerService.save(owner);
         this.entityManager.flush();
         this.entityManager.clear();
@@ -44,7 +45,7 @@ public class OwnerServiceTest {
     @Test
     public void shouldNotFindOwnerById() {
         assertThatThrownBy(() -> {
-            this.ownerService.findById(12345);
+            this.ownerService.findById(12345L);
         }).isInstanceOf(EntityNotFoundException.class);
 
     }
