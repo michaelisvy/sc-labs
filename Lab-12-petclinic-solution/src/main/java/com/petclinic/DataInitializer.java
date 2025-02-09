@@ -21,9 +21,9 @@ public class DataInitializer {
 
     @PostConstruct
     public void initializeSampleData() {
-        Owner owner = new Owner(0, "joe", "satriani", 1000);
-        var pet1 = new Pet(0, "dog", "luna");
-        var visit = new Visit(0, "V01-23", LocalDate.of(2013, 12, 21), "Teeth whitening");
+        Owner owner = new Owner(null, "joe", "satriani", 1000);
+        var pet1 = new Pet(null, "dog", "luna");
+        var visit = new Visit(null, "V01-23", LocalDate.of(2013, 12, 21), "Teeth whitening");
         visit.setPet(pet1);
         owner.setPets(List.of(pet1));
         visit.setOwner(owner);
