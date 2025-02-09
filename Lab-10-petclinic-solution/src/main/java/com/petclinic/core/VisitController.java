@@ -13,7 +13,7 @@ public class VisitController {
     }
 
     @RequestMapping("/visit/{id}")
-    public Visit findById(@PathVariable int id) {
+    public Visit findById(@PathVariable Long id) {
         return this.visitService.findById(id);
     }
 }

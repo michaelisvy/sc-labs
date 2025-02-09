@@ -13,7 +13,7 @@ public class OwnerController {
     }
 
     @RequestMapping("/owner/{id}")
-    public Owner findById(@PathVariable int id) {
+    public Owner findById(@PathVariable Long id) {
         return this.ownerService.findById(id);
     }
 
