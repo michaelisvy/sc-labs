@@ -25,7 +25,7 @@ class VisitServiceUnitTest {
 
     @Test
     public void shouldFindVisitByReferenceNumber() {
-        var visit = new Visit(0, "V01-23", LocalDate.of(2013, 12, 21), "Teeth whitening");
+        var visit = new Visit(null, "V01-23", LocalDate.of(2013, 12, 21), "Teeth whitening");
         when(this.visitRepository.findByReferenceNumber("V01-23")).thenReturn(Optional.of(visit));
         assertThat(this.visitService.findByReferenceNumber("V01-23").getReferenceNumber()).isEqualTo("V01-23");
     }

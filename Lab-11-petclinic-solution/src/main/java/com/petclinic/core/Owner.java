@@ -8,7 +8,7 @@ import java.util.List;
 @Entity
 public class Owner {
     @Id @GeneratedValue
-    private int id;
+    private Long id;
     private String firstName;
     private String lastName;
     private double accountStatement;
@@ -20,14 +20,14 @@ public class Owner {
     public Owner() {
     }
 
-    public Owner(int id, String firstName, String lastName, double accountStatement) {
+    public Owner(Long id, String firstName, String lastName, double accountStatement) {
         this.id = id;
         this.firstName = firstName;
         this.lastName = lastName;
         this.accountStatement = accountStatement;
     }
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 

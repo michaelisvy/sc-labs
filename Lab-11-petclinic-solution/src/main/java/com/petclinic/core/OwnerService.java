@@ -19,10 +19,14 @@ public class OwnerService {
     }
 
     public Owner findByFirstName(String firstName) {
-        return ownerRepository.findByFirstName(firstName);
+        var owner = ownerRepository.findByFirstName(firstName);
+        if (owner.isEmpty()) {
+            throw new EntityNotFoundException("could not find Owner with name: " + firstName);
+        }
+        else return owner.get();
     }
 
-    public Owner findById(Integer id) {
+    public Owner findById(Long id) {
         Optional<Owner> owner = ownerRepository.findById(id);
         if (owner.isEmpty()) {
             throw new EntityNotFoundException("could not find Owner with id: " + id);
@@ -35,7 +39,11 @@ public class OwnerService {
     }
 
     public Owner findByFirstNameWithPets(String firstName) {
-        return ownerRepository.findByFirstNameWithPets(firstName);
+        Optional<Owner> owner = ownerRepository.findByFirstNameWithPets(firstName);
+        if (owner.isEmpty()) {
+            throw new EntityNotFoundException("could not find Owner with first name: " + firstName);
+        }
+        else return owner.get();
     }
 
     public void delete(Owner owner) {
