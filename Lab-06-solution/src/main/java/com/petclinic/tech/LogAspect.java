@@ -18,21 +18,17 @@ public class LogAspect {
 
     @Before("execution(* com.petclinic..*Service.*(..))")
     public void logMethodsCalledBefore( JoinPoint joinPoint ) throws Throwable {
-        String methodName = joinPoint.getSignature().getName();
-        String className = joinPoint.getTarget().getClass().getName();
-        logger.info("Before executing method: {}.{}", className, methodName);
+        logger.info("Before executing method: {}", joinPoint.getSignature());
     }
 
     @Around("execution(* com.petclinic..*Service.*(..))")
     public Object logMethodsCalled( ProceedingJoinPoint joinPoint ) throws Throwable {
-        String methodName = joinPoint.getSignature().getName();
-        String className = joinPoint.getTarget().getClass().getName();
-
         StopWatch stopWatch =  new StopWatch();
         stopWatch.start();
 
         Object result = joinPoint.proceed();
         stopWatch.stop();
+        logger.info("method called: {}", joinPoint.getSignature());
         logger.info("time spent: {} ms", stopWatch.getTotalTime(TimeUnit.MILLISECONDS));
         return result;
     }
