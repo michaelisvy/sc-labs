@@ -1,21 +1,17 @@
 package com.petclinic.core
 
 import org.assertj.core.api.Assertions.*
-import org.junit.jupiter.api.BeforeEach
 import org.junit.jupiter.api.Test
+import org.junit.jupiter.api.extension.ExtendWith
 import org.mockito.Mockito
-import org.mockito.MockitoAnnotations
+import org.mockito.junit.jupiter.MockitoExtension
 import java.time.LocalDate
 import java.util.*
 
+@ExtendWith(MockitoExtension::class)
 internal class VisitServiceUnitTest {
     private val visitRepository = Mockito.mock(VisitRepository::class.java)
     private val visitService = VisitService(visitRepository)
-
-    @BeforeEach
-    fun setup() {
-        MockitoAnnotations.openMocks(this)
-    }
 
     @Test
     fun shouldFindVisitByReferenceNumber() {
@@ -24,6 +20,6 @@ internal class VisitServiceUnitTest {
 
         val foundVisit = visitService.findById(1)
 
-        assertThat(foundVisit?.id).isEqualTo(1)
+        assertThat(foundVisit.id).isEqualTo(1)
     }
 }

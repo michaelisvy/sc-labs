@@ -1,26 +1,22 @@
 package com.petclinic.core;
 
-import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.junit.jupiter.MockitoExtension;
 
 import java.time.LocalDate;
 
 import static org.assertj.core.api.Assertions.*;
 import static org.mockito.Mockito.when;
-import static org.mockito.MockitoAnnotations.openMocks;
 
+@ExtendWith(MockitoExtension.class)
 class VisitServiceUnitTest {
     @Mock
     private VisitRepository visitRepository;
     @InjectMocks
     private VisitService visitService;
-
-    @BeforeEach
-    public void setup() {
-        openMocks(this);
-    }
 
     @Test
     public void shouldFindVisitByReferenceNumber() {
