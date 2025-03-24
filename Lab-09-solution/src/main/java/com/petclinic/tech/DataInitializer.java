@@ -1,4 +1,4 @@
-package com.petclinic;
+package com.petclinic.tech;
 
 import com.petclinic.core.Owner;
 import com.petclinic.core.Pet;
