@@ -2,11 +2,9 @@ package com.petclinic.core
 
 import com.fasterxml.jackson.databind.ObjectMapper
 import org.junit.jupiter.api.Test
-import org.mockito.ArgumentMatchers
 import org.mockito.BDDMockito
 import org.springframework.beans.factory.annotation.Autowired
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest
-import org.springframework.http.MediaType
+import org.springframework.boot.webmvc.test.autoconfigure.WebMvcTest
 import org.springframework.test.context.bean.override.mockito.MockitoBean
 import org.springframework.test.web.servlet.MockMvc
 import org.springframework.test.web.servlet.request.MockMvcRequestBuilders
@@ -28,7 +26,7 @@ internal class OwnerControllerTest {
     @Test
     @Throws(Exception::class)
     fun shouldFindOwnerById() {
-        var pets = List.of(Pet(1L, "dog", "luna"))
+        val pets = List.of(Pet(1L, "dog", "luna"))
         val owner = Owner(1L, "joe", "satriani", BigDecimal(1000), pets)
         BDDMockito.given(ownerService!!.findById(1L)).willReturn(owner)
 
@@ -44,7 +42,7 @@ internal class OwnerControllerTest {
     @Test
     @Throws(Exception::class)
     fun shouldFindOwnerByFirstName() {
-        var pets = List.of(Pet(1L, "dog", "luna"))
+        val pets = List.of(Pet(1L, "dog", "luna"))
         val owner = Owner(1L, "joe", "satriani", BigDecimal(1000), pets)
         BDDMockito.given(ownerService!!.findByFirstName("joe")).willReturn(owner)
 
