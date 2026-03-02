@@ -14,7 +14,7 @@
 	<description>Demo project for Spring Boot</description>
 	<properties>
 		<java.version>21</java.version>
-		<spring-boot-admin.version>4.0.0</spring-boot-admin.version>
+		<spring-boot-admin.version>4.0.1</spring-boot-admin.version>
 	</properties>
 	<dependencies>
 		<dependency>
@@ -32,7 +32,7 @@
         <dependency>
             <groupId>org.springdoc</groupId>
             <artifactId>springdoc-openapi-starter-webmvc-ui</artifactId>
-            <version>3.0.1</version>
+            <version>3.0.2</version>
         </dependency>
         <dependency>
             <groupId>org.hsqldb</groupId>
