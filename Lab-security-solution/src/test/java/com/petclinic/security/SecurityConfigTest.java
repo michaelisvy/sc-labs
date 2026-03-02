@@ -9,7 +9,6 @@ import org.springframework.test.web.servlet.MockMvc;
 
 import static org.springframework.security.test.web.servlet.request.SecurityMockMvcRequestPostProcessors.httpBasic;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.get;
-import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.content;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.status;
 
 @SpringBootTest
@@ -35,7 +34,8 @@ class SecurityConfigTest {
     @Test
     @WithMockUser(roles = "ADMIN")
     void userEndpointShouldBeAccessibleWithAdminRole() throws Exception {
-        mockMvc.perform(get("/user/"))
+        mockMvc.perform(get("/user/")
+                .with(httpBasic("user2", "password")))
                 .andExpect(status().isOk());
     }
 }
